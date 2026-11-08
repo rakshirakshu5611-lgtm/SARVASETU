@@ -1,0 +1,71 @@
+
+/* =========================================
+   SARVASETU — STATIC RESPONSIVE SPLASH
+   Phone • Tablet • Laptop • Desktop
+========================================= */
+
+.sarvasetu-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #f7f1e3;
+  pointer-events: all;
+}
+
+.splash-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/sarvasetu-laptop.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.splash-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 241, 227, 0.02),
+    rgba(62, 68, 53, 0.04)
+  );
+}
+
+/* MOBILE PHONES */
+@media screen and (max-width: 600px) {
+  .splash-background {
+    background-image: url("/images/sarvasetu-mobile.jpeg");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #f7f1e3;
+  }
+}
+
+/* TABLETS */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .splash-background {
+    background-image: url("/images/sarvasetu-tablet.jpeg");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #f7f1e3;
+  }
+}
+
+/* LAPTOPS AND DESKTOPS */
+@media screen and (min-width: 1025px) {
+  .splash-background {
+    background-image: url("/images/sarvasetu-laptop.jpeg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}

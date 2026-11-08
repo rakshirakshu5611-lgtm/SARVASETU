@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SARVASETU</string>
+    <string name="title_activity_main">SARVASETU</string>
+    <string name="package_name">com.sarvasetu.app</string>
+    <string name="custom_url_scheme">com.sarvasetu.app</string>
+</resources>

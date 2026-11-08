@@ -1,0 +1,119 @@
+
+@import "tailwindcss";
+
+/* SARVASETU — Global theme colours */
+
+:root {
+  color-scheme: light;
+  --page-bg: #F7F4EB;
+  --surface-bg: #FFFFFF;
+  --navbar-bg: #F2EEE1;
+  --text-primary: #3E4435;
+  --text-secondary: #686D60;
+  --border-color: #C8C1AA;
+  --input-bg: #FFFFFF;
+  --card-shadow: 0 2px 10px rgba(62, 68, 53, 0.07);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #1E241F;
+  --surface-bg: #292F29;
+  --navbar-bg: #252B25;
+  --text-primary: #F7F1E3;
+  --text-secondary: #D0D5C9;
+  --border-color: #596B5A;
+  --input-bg: #343C34;
+  --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  background: var(--page-bg);
+  color: var(--text-primary);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-wrap: anywhere;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--page-bg);
+  color: var(--text-primary);
+}
+
+/* Shared backgrounds and text */
+
+html[data-theme="dark"] main,
+html[data-theme="dark"] section {
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #BEC7BB;
+}
+
+/* Preserve existing layout and responsive behaviour */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+  font: inherit;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Capitalize the first letter of each word */
+h1,
+h2,
+h3,
+h4,
+button,
+nav a {
+  text-transform: capitalize;
+}

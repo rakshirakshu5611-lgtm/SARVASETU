@@ -1,0 +1,9 @@
+{
+  "appId": "com.sarvasetu.app",
+  "appName": "SARVASETU",
+  "webDir": "../frontend/dist",
+  "server": {
+    "url": "http://172.20.40.101:5173",
+    "cleartext": true
+  }
+}

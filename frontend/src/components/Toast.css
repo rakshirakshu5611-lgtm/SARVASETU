@@ -1,0 +1,224 @@
+
+/* ==========================================
+   SARVASETU — Signature Toast Notifications
+========================================== */
+
+.sarvasetu-toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: min(390px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+/* Shared notification structure */
+
+.sarvasetu-toast {
+  --toast-accent: #596B5A;
+  --toast-bg: #E5EADF;
+  --toast-border: #919D85;
+  --toast-text: #3E4435;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 17px 15px 17px 18px;
+  overflow: hidden;
+
+  background: linear-gradient(
+    125deg,
+    var(--toast-bg) 0%,
+    #F7F1E3 100%
+  );
+
+  border: 1px solid var(--toast-border);
+  border-left: 4px solid var(--toast-accent);
+  border-radius: 15px;
+
+  box-shadow:
+    0 14px 35px rgba(62, 68, 53, 0.10),
+    0 3px 8px rgba(62, 68, 53, 0.05);
+
+  color: var(--toast-text);
+  pointer-events: auto;
+
+  animation: sarvasetu-toast-enter 420ms
+    cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+/* Subtle signature decoration */
+
+.sarvasetu-toast::after {
+  content: "";
+  position: absolute;
+  top: -22px;
+  right: -18px;
+  width: 68px;
+  height: 68px;
+  border: 1px solid var(--toast-border);
+  border-radius: 50%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Message text */
+
+.sarvasetu-toast-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+}
+
+.sarvasetu-toast-content strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--toast-accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.sarvasetu-toast-content p {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--toast-text);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* Close button */
+
+.sarvasetu-toast-close {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  padding: 0;
+
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.28);
+  color: var(--toast-accent);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.sarvasetu-toast-close:hover {
+  transform: rotate(90deg);
+  background: rgba(255, 255, 255, 0.65);
+  border-color: var(--toast-border);
+}
+
+.sarvasetu-toast-close:focus-visible {
+  outline: 2px solid var(--toast-accent);
+  outline-offset: 3px;
+}
+
+/* 1. Success — botanical sage */
+
+.sarvasetu-toast-success {
+  --toast-accent: #596B5A;
+  --toast-bg: #E5EADF;
+  --toast-border: #919D85;
+  --toast-text: #3E4435;
+}
+
+/* 2. Saved — dusty rose */
+
+.sarvasetu-toast-saved {
+  --toast-accent: #A86E7D;
+  --toast-bg: #F2E3E7;
+  --toast-border: #C496A1;
+  --toast-text: #603D48;
+}
+
+/* 3. Information — muted lavender */
+
+.sarvasetu-toast-info {
+  --toast-accent: #77718F;
+  --toast-bg: #E8E5EF;
+  --toast-border: #8E88A3;
+  --toast-text: #49445E;
+}
+
+/* 4. Warning — antique bronze */
+
+.sarvasetu-toast-warning {
+  --toast-accent: #9A8146;
+  --toast-bg: #F3EAD0;
+  --toast-border: #C4AD78;
+  --toast-text: #655329;
+}
+
+/* 5. Error — muted terracotta */
+
+.sarvasetu-toast-error {
+  --toast-accent: #A6534D;
+  --toast-bg: #F3E2DE;
+  --toast-border: #C78679;
+  --toast-text: #793D38;
+}
+
+/* Entrance animation */
+
+@keyframes sarvasetu-toast-enter {
+  from {
+    opacity: 0;
+    transform: translateX(24px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 600px) {
+  .sarvasetu-toast-container {
+    top: 12px;
+    right: 12px;
+    width: calc(100vw - 24px);
+    gap: 10px;
+  }
+
+  .sarvasetu-toast {
+    padding: 15px 12px 15px 16px;
+    border-radius: 13px;
+  }
+
+  .sarvasetu-toast-content strong {
+    font-size: 15px;
+  }
+
+  .sarvasetu-toast-content p {
+    font-size: 12px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .sarvasetu-toast,
+  .sarvasetu-toast-close {
+    animation: none;
+    transition: none;
+  }
+}
